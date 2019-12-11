@@ -1,6 +1,7 @@
 #ifndef UTILITIES
 #define UTILITIES
 
+#include<vector>
 #define GEN_SIZE 100
 #define POP_SIZE 100
 #define LEN_CHROM 10
@@ -10,17 +11,17 @@
 class GA{
 	
 	private:
-		vector<pair<char*,int>>m_pop_set; /*pop_set is a vector that stores a pair where pair.first is chromosome(bit string) and pair.second is fitness(value)*/
+		std::vector<std::pair<char*,int>>m_pop_set; /*pop_set is a vector that stores a pair where pair.first is chromosome(bit string) and pair.second is fitness(value)*/
 	public:
 		GA();
-		void fitness_function(char*);
+		int fitness_function_evaluation(char*);
 		void crossover(char*,char*,int);
 		char* mutation(char*);
-		vector<pair<char*,int>> get_pop();
-		void set_pop(vector<pair<char*,int>>,char*);
+		std::vector<std::pair<char*,int>> get_pop();
+		void set_pop(std::vector<std::pair<char*,int>>,char*);
 		double get_fitness(char*);
-		void set_fitness(vector<pair<char*,int>>,double fitness);
-		void tournament_selection(vector<pair<char*,int>>);
+		void set_fitness(std::vector<std::pair<char*,int>>,double fitness);
+		std::vector<char*> tournament_selection(std::vector<std::pair<char*,int>>);
 };
 
 #endif

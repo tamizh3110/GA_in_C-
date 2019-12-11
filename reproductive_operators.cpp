@@ -25,7 +25,7 @@ void GA::crossover(char *s1,char *s2,int index){
 		strcat(temp_one_part_one,temp_two_part_one);
 	
 		strcat(temp_one_part_two,temp_two_part_two);
-
+		
 		mutation(temp_one_part_one);
 		mutation(temp_one_part_two);
 	}else{
@@ -42,7 +42,7 @@ char* GA::mutation(char *s1){
 	int rand_value=rand();
 
 	if(rand_value<=PROB_MUTATION){
-		for(int i=0;i<len;i++){
+		for(unsigned int i=0;i<len;i++){
 			if(s1[i]=='1'){
 				s1[i]='0';	
 			}else if(s1[i]=='0'){
