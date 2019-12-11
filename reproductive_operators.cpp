@@ -8,8 +8,11 @@ using namespace std;
 #include "utilities.hpp"
 
 
-void GA::crossover(char *s1,char *s2,int index){
+pair<char*,char*> GA::crossover(char *s1,char *s2,int index){
 	srand(time(NULL));
+	pair<char*,char*>crossed;
+	crossed.first=s1;
+	crossed.second=s2;
 	int rand_value=rand();
 	if(rand_value<=PROB_CROSSOVER){
 
@@ -25,14 +28,12 @@ void GA::crossover(char *s1,char *s2,int index){
 		strcat(temp_one_part_one,temp_two_part_one);
 	
 		strcat(temp_one_part_two,temp_two_part_two);
-		
-		mutation(temp_one_part_one);
-		mutation(temp_one_part_two);
-	}else{
-
-		mutation(s1);
-		mutation(s2);
+		crossed.first=temp_one_part_one;
+		crossed.second=temp_one_part_two;
+		return crossed;
 	}
+	
+	return crossed;
 }
 
 char* GA::mutation(char *s1){

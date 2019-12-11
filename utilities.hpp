@@ -13,14 +13,21 @@ class GA{
 	private:
 		std::vector<std::pair<char*,int>>m_pop_set; /*pop_set is a vector that stores a pair where pair.first is chromosome(bit string) and pair.second is fitness(value)*/
 	public:
-		GA();
+		GA(){
+		
+		}
+		GA(std::vector<std::pair<char*,int>>pop):m_pop_set(pop){
+			
+		}
+
+
 		int fitness_function_evaluation(char*);
-		void crossover(char*,char*,int);
+		pair<char*,char*> crossover(char*,char*,int);
 		char* mutation(char*);
 		std::vector<std::pair<char*,int>> get_pop();
 		void set_pop(std::vector<std::pair<char*,int>>,char*);
-		double get_fitness(char*);
-		void set_fitness(std::vector<std::pair<char*,int>>,double fitness);
+		//double get_fitness(char*,pair<char*);
+		//void set_fitness(std::vector<std::pair<char*,int>>,double fitness);
 		std::vector<char*> tournament_selection(std::vector<std::pair<char*,int>>);
 };
 

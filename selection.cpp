@@ -47,6 +47,4 @@ vector<char*> GA::tournament_selection(vector<pair<char*,int>>pop){
 	}
 
 	return mating_pool;
-	
-
 }
